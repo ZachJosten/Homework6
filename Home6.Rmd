@@ -42,10 +42,9 @@ HAPPY = HAPPY %>% mutate(HAPPY = factor(HAPPY),
                          POLVIEWS = factor(POLVIEWS))
 str(HAPPY)
 ```
-
 ### Question 3
 
 ```{r}
-
+HAPPY$DEGREE <- factor(HAPPY$DEGREE, levels = c("lt high school", "high school", "junior college", "bachelor", "graduate school"))
 ```
 

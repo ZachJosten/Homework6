@@ -17,8 +17,9 @@ HAPPY <- readRDS("HAPPY.rds")
 Kevin Gnaster
 
 ```{r}
-HAPPY <- replace(HAPPY, HAPPY %in% 
-                   c("IAP", "DK", "NA"), NA)
+HAPPY = replace(HAPPY, HAPPY == "IAP", NA)
+HAPPY = replace(HAPPY, HAPPY == "DK", NA)
+HAPPY = replace(HAPPY, HAPPY == "NA", NA)
 ```
 
 ### Question 2

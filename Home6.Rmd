@@ -1,30 +1,51 @@
 ---
-title: "Home6"
-author: "Zach"
-date: "2/28/2022"
+title: "Homework6"
+author: "Kevin Gnaster, Zach Josten, Cade Balvanz"
+date: "3/2/2022"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r}
+data(happy, package="productplots")
+head(happy)
+HAPPY <- readRDS("HAPPY.rds")
 ```
 
-## R Markdown
+# Part 1
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+### Question 1
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+Kevin Gnaster
 
-```{r cars}
-library(ggplot2)
+```{r}
+HAPPY <- replace(HAPPY, HAPPY %in% 
+                   c("IAP", "DK", "NA"), NA)
 ```
 
-## Including Plots
+### Question 2
 
-You can also embed plots, for example:
+Kevin Gnaster
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r}
+library(dplyr)
+HAPPY = HAPPY %>% mutate(
+  age = replace(AGE, AGE == "89 AND OLDER", 89),
+  age = as.numeric(age)) %>% select(-AGE)
+
+HAPPY = HAPPY %>% mutate(HAPPY = factor(HAPPY), 
+                         SEX = factor(SEX),
+                         MARITAL = factor(MARITAL),
+                         DEGREE = factor(DEGREE),
+                         FINRELA = factor(FINRELA),
+                         HEALTH = factor(HEALTH),
+                         PARTYID = factor(PARTYID),
+                         POLVIEWS = factor(POLVIEWS))
+str(HAPPY)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+### Question 3
+
+```{r}
+
+```
+

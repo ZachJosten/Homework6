@@ -6,6 +6,8 @@ output: html_document
 ---
 
 ```{r}
+library(ggplot2)
+library(dplyr)
 data(happy, package="productplots")
 HAPPY <- readRDS("HAPPY.rds")
 ```
@@ -27,7 +29,6 @@ HAPPY = replace(HAPPY, HAPPY == "NA", NA)
 Kevin Gnaster
 
 ```{r}
-library(dplyr)
 HAPPY = HAPPY %>% mutate(
   age = replace(AGE, AGE == "89 AND OLDER", 89),
   age = as.numeric(age)) %>% select(-AGE)
@@ -61,7 +62,6 @@ HAPPY$POLVIEWS <- factor(HAPPY$POLVIEWS, levels = c("EXTREMELY LIBERAL","LIBERAL
 ## Kevin Gnaster - Happiness vs Political Views / Sex exploration 
 
 ```{r}
-library(ggplot2)
 ggplot(data = HAPPY, aes(x = POLVIEWS)) +
   geom_bar(aes(fill = HAPPY), position = "dodge")
 
@@ -72,4 +72,13 @@ ggplot(data = HAPPY, aes(x = SEX)) +
 For the first plot, we can see a pretty even distribution of happiness ratings to political views. All of them seem pretty close when taking into account proportions.
 
 For the second plot, we can see that women seem to be a bit more unhappy than males.
+
+
+## Zach Josten -
+```{r}
+Year.2000 = HAPPY %>% dplyr::filter(as.integer(YEAR) >= 2000)
+ggplot(Year.2000, aes(x = YEAR, fill = Year.2000$HAPPY)) + geom_bar()
+
+ggplot(HAPPY, aes(x = DEGREE)) + geom_bar(aes(fill = HAPPY), position = "dodge")
+```
 

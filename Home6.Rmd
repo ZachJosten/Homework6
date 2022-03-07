@@ -74,11 +74,11 @@ For the first plot, we can see a pretty even distribution of happiness ratings t
 For the second plot, we can see that women seem to be a bit more unhappy than males.
 
 
-## Zach Josten -
+## Zach Josten - Happiness vs Year / Finrela
 ```{r}
 Year.2000 = HAPPY %>% dplyr::filter(as.integer(YEAR) >= 2000)
 ggplot(Year.2000, aes(x = YEAR, fill = Year.2000$HAPPY)) + geom_bar()
 
-ggplot(HAPPY, aes(x = DEGREE)) + geom_bar(aes(fill = HAPPY), position = "dodge")
+ggplot(HAPPY, aes(x = FINRELA)) + geom_bar(aes(fill = HAPPY), position = "dodge") + coord_flip()
 ```
 

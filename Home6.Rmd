@@ -80,5 +80,17 @@ Year.2000 = HAPPY %>% dplyr::filter(as.integer(YEAR) >= 2000)
 ggplot(Year.2000, aes(x = YEAR, fill = Year.2000$HAPPY)) + geom_bar()
 
 ggplot(HAPPY, aes(x = FINRELA)) + geom_bar(aes(fill = HAPPY), position = "dodge") + coord_flip()
+
+
+## Cade Balvanz - Happiness vs Degree/Health
+
+```{r}
+ggplot(data=HAPPY, aes(x=HEALTH)) +geom_bar(aes(fill=HAPPY),position = position_dodge())
+```
+As we can see in the first graph for the most part people are happy no matter what there health is, with lots of higher values of HAppy and Very Happy,  but there is a difference in the poor value with a lot more no to happys in comparison with the other graphs. 
+```{r}
+ggplot(data=HAPPY, aes(x=DEGREE)) +geom_bar(aes(fill=HAPPY),position = position_dodge())
+```
+No matter the degrees the mini histograms are all very similar with lots of pretty happy's, and secondly very happy. and the Not to happys and NA's are fairly low. 
 ```
 

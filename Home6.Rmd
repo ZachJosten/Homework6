@@ -56,8 +56,6 @@ HAPPY$HEALTH <- factor(HAPPY$HEALTH, levels = c("POOR","FAIR","GOOD","EXCELLENT"
 HAPPY$FINRELA <- factor(HAPPY$FINRELA, levels = c("FAR BELOW AVERAGE","BELOW AVERAGE", "AVERAGE", "ABOVE AVERAGE","FAR ABOVE AVERAGE"))
 
 HAPPY$POLVIEWS <- factor(HAPPY$POLVIEWS, levels = c("EXTREMELY LIBERAL","LIBERAL","SLIGHTLY LIBERAL","MODERATE","SLGHTLY CONSERVATIVE","CONSERVATIVE","EXTRMLY CONSERVATIVE"))
-
-View(HAPPY)
 ```
 # Part 2
 
@@ -82,7 +80,12 @@ Year.2000 = HAPPY %>% dplyr::filter(as.integer(YEAR) >= 2000)
 ggplot(Year.2000, aes(x = YEAR, fill = Year.2000$HAPPY)) + geom_bar()
 
 ggplot(HAPPY, aes(x = FINRELA)) + geom_bar(aes(fill = HAPPY), position = "dodge") + coord_flip()
-
+```
+\
+For the first plot in ~2000 there is a high proportion of very happy and pretty happy, with a low proportion of not happy. However as the plot continues towards 2016, we see a decrease in very happy and an increase in not happy, not by a lot but by a noticeable amount.\
+\
+For the second graph, near the bottom at far below average, we see a high amount of not too happy in proportion to pretty happy and very happy. However as we continue up to average, we can see a drop in not too happy with an increase in pretty happy and very happy. Finally with above average we see a slight increase in proportion of very happy to everything else.\
+\
 
 ## Cade Balvanz - Happiness vs Degree/Health
 
@@ -94,6 +97,6 @@ As we can see in the first graph for the most part people are happy no matter wh
 ggplot(data=HAPPY, aes(x=DEGREE)) +geom_bar(aes(fill=HAPPY),position = position_dodge())
 ```
 No matter the degrees the mini histograms are all very similar with lots of pretty happy's, and secondly very happy. and the Not to happys and NA's are fairly low. 
-```
+
 \
 

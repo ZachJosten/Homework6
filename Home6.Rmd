@@ -49,13 +49,15 @@ str(HAPPY)
 Kevin Gnaster
 
 ```{r}
-HAPPY$DEGREE <- factor(HAPPY$DEGREE, levels = c("lt high school", "high school", "junior college", "bachelor", "graduate school"))
+HAPPY$DEGREE <- factor(HAPPY$DEGREE, levels = c("LT HIGH SCHOOL", "HIGH SCHOOL", "JUNIOR COLLEGE", "BACHELOR", "GRADUATE SCHOOL"))
 
 HAPPY$HEALTH <- factor(HAPPY$HEALTH, levels = c("POOR","FAIR","GOOD","EXCELLENT"))
 
 HAPPY$FINRELA <- factor(HAPPY$FINRELA, levels = c("FAR BELOW AVERAGE","BELOW AVERAGE", "AVERAGE", "ABOVE AVERAGE","FAR ABOVE AVERAGE"))
 
 HAPPY$POLVIEWS <- factor(HAPPY$POLVIEWS, levels = c("EXTREMELY LIBERAL","LIBERAL","SLIGHTLY LIBERAL","MODERATE","SLGHTLY CONSERVATIVE","CONSERVATIVE","EXTRMLY CONSERVATIVE"))
+
+View(HAPPY)
 ```
 # Part 2
 
@@ -74,11 +76,12 @@ For the first plot, we can see a pretty even distribution of happiness ratings t
 For the second plot, we can see that women seem to be a bit more unhappy than males.
 
 
-## Zach Josten - Happiness vs Year / Finrela
+## Zach Josten - Happiness vs Year / Financial Relation
 ```{r}
 Year.2000 = HAPPY %>% dplyr::filter(as.integer(YEAR) >= 2000)
 ggplot(Year.2000, aes(x = YEAR, fill = Year.2000$HAPPY)) + geom_bar()
 
 ggplot(HAPPY, aes(x = FINRELA)) + geom_bar(aes(fill = HAPPY), position = "dodge") + coord_flip()
 ```
+\
 

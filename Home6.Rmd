@@ -5,6 +5,7 @@ date: "3/2/2022"
 output: html_document
 ---
 
+["GitHub Repository"](https://github.com/ZachJosten/Homework6)
 ```{r}
 library(ggplot2)
 library(dplyr)
